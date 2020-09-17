@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,16 +14,17 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class BoxesController : ControllerBase
     {
-        private readonly ArchiveContext _context;
-        public BoxesController(ArchiveContext context)
+        private readonly IBoxRepository _repo;
+        public BoxesController(IBoxRepository repo)
         {
-            _context = context;
+            _repo = repo;
+            
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Box>>> GetBoxes()
         {
-            var boxes = await _context.Boxes.ToListAsync();
+            var boxes = await _repo.GetBoxesAsync();
 
             return Ok(boxes);
         }
@@ -31,8 +33,7 @@ namespace API.Controllers
         public async Task<ActionResult<Box>> GetBox(int id)
         {
             // string guid = id.ToString();
-            return await _context.Boxes.FindAsync(id);
+            return await _repo.GetBoxByIdAsync(id);
         }
-
     }
 }
