@@ -21,6 +21,7 @@ namespace API
                 {
                     var context = services.GetRequiredService<ArchiveContext>();
                     await context.Database.MigrateAsync();
+                    await ArchiveContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex) {
                     var logger = loggerFactory.CreateLogger<Program>();

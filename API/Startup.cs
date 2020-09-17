@@ -22,6 +22,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IBoxRepository, BoxRepository>();
+            services.AddScoped<IPolicyRepository, PolicyRepository>();
             services.AddControllers();
             services.AddDbContext<ArchiveContext>(x => 
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection")));

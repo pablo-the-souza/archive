@@ -30,9 +30,8 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Box>> GetBox(int id)
+        public async Task<ActionResult<Box>> GetBox(Guid id)
         {
-            // string guid = id.ToString();
             return await _repo.GetBoxByIdAsync(id);
         }
     }
