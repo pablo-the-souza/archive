@@ -2,7 +2,7 @@ using System;
 
 namespace Core.Entities
 {
-    public class File: BaseEntity
+    public class Policy: BaseEntity
     {
         public string Code { get; set; }
         public string Name { get; set; }

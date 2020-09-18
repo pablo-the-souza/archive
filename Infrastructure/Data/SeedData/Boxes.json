@@ -1,0 +1,26 @@
+[
+  {
+    "Id":"b9790dfd-dff9-4cca-abff-8b09a68c428e",
+    "Code": "dfds123",
+    "DestructionFlag": "Never",
+    "Reference": "ref123",
+    "DateLeftOffice": "2019-07-26T00:00:00",
+    "Comments": ""
+  },
+  {
+    "Id":"5401d3e3-1739-446f-880e-500b1da31c33",
+    "Code": "dhud123",
+    "DestructionFlag": "Always",
+    "Reference": "ref234",
+    "DateLeftOffice": "2019-07-26T00:00:00",
+    "Comments": ""
+  },
+  {
+    "Id":"6387fb20-6cdc-4012-89c6-c5088fc897f6",
+    "Code": "dffe441",
+    "DestructionFlag": "Maybe",
+    "Reference": "ref567",
+    "DateLeftOffice": "2019-07-26T00:00:00",
+    "Comments": ""
+  }
+]

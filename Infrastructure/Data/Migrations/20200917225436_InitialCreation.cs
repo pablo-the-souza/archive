@@ -24,7 +24,7 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Files",
+                name: "Policies",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -39,9 +39,9 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Files", x => x.Id);
+                    table.PrimaryKey("PK_Policies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Files_Boxes_BoxId",
+                        name: "FK_Policies_Boxes_BoxId",
                         column: x => x.BoxId,
                         principalTable: "Boxes",
                         principalColumn: "Id",
@@ -49,15 +49,15 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Files_BoxId",
-                table: "Files",
+                name: "IX_Policies_BoxId",
+                table: "Policies",
                 column: "BoxId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Files");
+                name: "Policies");
 
             migrationBuilder.DropTable(
                 name: "Boxes");

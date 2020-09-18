@@ -12,7 +12,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Box> Boxes {get; set;}
-        public DbSet<File> Files {get; set;}
+        public DbSet<Policy> Policies {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {

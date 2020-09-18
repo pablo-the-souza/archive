@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ArchiveContext))]
-    [Migration("20200917011120_InitialCreation")]
+    [Migration("20200917225436_InitialCreation")]
     partial class InitialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Boxes");
                 });
 
-            modelBuilder.Entity("Core.Entities.File", b =>
+            modelBuilder.Entity("Core.Entities.Policy", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,10 +83,10 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("BoxId");
 
-                    b.ToTable("Files");
+                    b.ToTable("Policies");
                 });
 
-            modelBuilder.Entity("Core.Entities.File", b =>
+            modelBuilder.Entity("Core.Entities.Policy", b =>
                 {
                     b.HasOne("Core.Entities.Box", "Box")
                         .WithMany()

@@ -47,7 +47,7 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Boxes");
                 });
 
-            modelBuilder.Entity("Core.Entities.File", b =>
+            modelBuilder.Entity("Core.Entities.Policy", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -81,10 +81,10 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("BoxId");
 
-                    b.ToTable("Files");
+                    b.ToTable("Policies");
                 });
 
-            modelBuilder.Entity("Core.Entities.File", b =>
+            modelBuilder.Entity("Core.Entities.Policy", b =>
                 {
                     b.HasOne("Core.Entities.Box", "Box")
                         .WithMany()
