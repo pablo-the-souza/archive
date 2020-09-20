@@ -14,17 +14,20 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class BoxesController : ControllerBase
     {
-        private readonly IBoxRepository _repo;
-        public BoxesController(IBoxRepository repo)
+        private readonly IGenericRepository<Box> _boxesRepo;
+
+
+        public BoxesController(
+            IGenericRepository<Box> boxesRepo
+            )
         {
-            _repo = repo;
-            
+            _boxesRepo = boxesRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Box>>> GetBoxes()
         {
-            var boxes = await _repo.GetBoxesAsync();
+            var boxes = await _boxesRepo.ListAllAsync();
 
             return Ok(boxes);
         }
@@ -32,7 +35,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Box>> GetBox(Guid id)
         {
-            return await _repo.GetBoxByIdAsync(id);
+            return await _boxesRepo.GetByIdAsync(id);
         }
     }
 }

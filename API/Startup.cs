@@ -1,4 +1,6 @@
 
+using API.Helpers;
+using AutoMapper;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
@@ -23,6 +25,8 @@ namespace API
         {
             services.AddScoped<IBoxRepository, BoxRepository>();
             services.AddScoped<IPolicyRepository, PolicyRepository>();
+            services.AddScoped(typeof(IGenericRepository<>),(typeof(GenericRepository<>)));
+            services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<ArchiveContext>(x => 
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
